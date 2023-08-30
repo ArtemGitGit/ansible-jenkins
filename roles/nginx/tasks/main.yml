@@ -1,9 +1,12 @@
 - name: install nginx
+  become: yes
+  command:
+    cmd: yum update -y
+
+- name: install nginx
   yum:
-    name:
-      - nginx
+    name: nginx
     state: present
-    update_cache: yes
   become: yes
 
 - name: start nginx
